@@ -1,0 +1,80 @@
+
+(rules PCB Accumulator a Register
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1236)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND +5V "acc_b7" "Net-(D27-Pad1)" "acc_b6" "Net-(D28-Pad1)" "acc_b5" "Net-(D29-Pad1)"
+    "acc_b4" "Net-(D30-Pad1)" "acc_b3" "Net-(D31-Pad1)" "acc_b2" "Net-(D32-Pad1)" "acc_b1" "Net-(D33-Pad1)"
+    "acc_b0" "Net-(D34-Pad1)" "\ACC_OUT" "\ACC_IN" RESET CLOCK bus7 bus6
+    bus5 bus4 bus3 bus2 bus1 bus0 "Net-(JP25-Pad2)" "Net-(JP26-Pad2)"
+    "Net-(JP27-Pad2)" "Net-(JP28-Pad2)" "Net-(JP29-Pad2)" "Net-(JP30-Pad2)" "Net-(JP31-Pad2)" "Net-(JP32-Pad2)" "Net-(JP33-Pad2)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

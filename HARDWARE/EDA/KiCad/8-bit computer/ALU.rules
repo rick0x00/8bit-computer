@@ -1,0 +1,84 @@
+
+(rules PCB ALU2
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 6730)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 250.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 62.6 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    +5V GND "Net-(D35-Pad1)" "alu_b7" "alu_b6" "Net-(D36-Pad1)" "alu_b5" "Net-(D37-Pad1)"
+    "Net-(D38-Pad1)" "alu_b4" "alu_b3" "Net-(D39-Pad1)" "Net-(D40-Pad1)" "alu_b2" "Net-(D41-Pad1)" "alu_b1"
+    "alu_b0" "Net-(D42-Pad1)" "sum_b0" "sum_b1" "sum_b2" "sum_b3" "sum_b4" "sum_b5"
+    "sum_b6" "sum_b7" "and_b7" "and_b6" "and_b5" "and_b4" "and_b3" "and_b2"
+    "and_b1" "and_b0" "or_b0" "or_b1" "or_b2" "or_b3" "or_b4" "or_b5"
+    "or_b6" "or_b7" "xor_not_b7" "xor_not_b6" "xor_not_b5" "xor_not_b4" "xor_not_b3" "xor_not_b2"
+    "xor_not_b1" "xor_not_b0" "ALU_0" "ALU_1" "\ALU_OUT" bus0 bus1 bus2
+    bus3 bus4 bus5 bus6 bus7 "Net-(JP34-Pad2)" "Net-(JP35-Pad2)" "Net-(JP36-Pad2)"
+    "Net-(JP37-Pad2)" "Net-(JP38-Pad2)" "Net-(JP39-Pad2)" "Net-(JP40-Pad2)" "Net-(JP41-Pad2)" "Net-(JP42-Pad2)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

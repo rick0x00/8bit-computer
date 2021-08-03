@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 28C16A
+D 16K 2K x 8 CMOS EEPROM
+F https://ww1.microchip.com/downloads/en/DeviceDoc/11125J.pdf
+$ENDCMP
+#
+$CMP 74F189
+D 64-Bit Random Access Memory with 3-STATE Outputs
+F https://pdf1.alldatasheet.com/datasheet-pdf/view/50302/FAIRCHILD/74F189/+_0_Q4UwYhRDpKxHeDCMvHI+/datasheet.pdf
+$ENDCMP
+#
+#End Doc Library
